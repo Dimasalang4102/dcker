@@ -1,0 +1,29 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - node-app
+    
+  node-app:
+    build: .
+    environment:
+      - PORT=3000
+    depends_on:
+      - mongo
+     
+  mongo:
+    image: amd64/mongo:4.4
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=jillian
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-db:/data/db
+
+  redis:
+    image: redis
+
+volumes:
+  mongo-db:
