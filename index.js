@@ -64,3 +64,8 @@ app.use("/api/v1/users", userRouter)
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`listening on port ${port}...`))
+
+
+
+// docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --no-deps node-app
+// docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --force-recreate --no-deps node-app/

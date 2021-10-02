@@ -9,6 +9,7 @@ services:
     
   node-app:
     build: .
+    image: jillian4102/fcc_dcker
     environment:
       - PORT=3000
     depends_on:
